@@ -1,0 +1,47 @@
+{
+  "name": "topsis-ia",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Selección multicriterio de modelos de IA mediante TOPSIS — DEC UTN FRC 5K2 Grupo 6",
+  "scripts": {
+    "dev": "concurrently -n api,web -c blue,green \"npm:dev:api\" \"npm:dev:web\"",
+    "dev:web": "vite",
+    "dev:api": "tsx watch --env-file-if-exists=.env.local scripts/dev-api.ts",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc -b",
+    "db:setup": "tsx --env-file-if-exists=.env.local scripts/db-setup.ts",
+    "db:reset": "tsx --env-file-if-exists=.env.local scripts/db-setup.ts --reset"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^1.1.0",
+    "katex": "^0.18.9",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "react-router-dom": "^7.18.4",
+    "recharts": "^3.10.1",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "^0.5.8",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/katex": "^0.16.8",
+    "@types/node": "^26.6.3",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vercel/node": "^16.0.0",
+    "@vitejs/plugin-react": "^6.1.1",
+    "concurrently": "^10.0.5",
+    "tailwindcss": "^4.3.3",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.1",
+    "vitest": "^5.0.2"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
